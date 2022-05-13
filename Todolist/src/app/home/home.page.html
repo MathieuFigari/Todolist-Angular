@@ -1,0 +1,76 @@
+<ion-header  [translucent]="true">
+  <ion-toolbar  color="primary">
+    <ion-title >
+      Todolist
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div class="bg-img">
+
+   <form *ngIf="!loggedBool" (ngSubmit)="login()" class="signIn">
+     <ion-item >
+       <ion-label  position="floating">Email</ion-label>
+       <ion-input [(ngModel)]="myEmail" name="myEmail" type="email" aria-placeholder="Email" required></ion-input>
+     </ion-item>
+
+     <ion-item >
+      <ion-label position="floating">Mot de Passe</ion-label>
+      <ion-input [(ngModel)]="myPassword" name="myPassword" type="password" aria-placeholder="Mot de Passe"></ion-input>
+    </ion-item>
+    <ion-button color="success" type="submit" class="connectButton">Se Connecter</ion-button>
+   </form>
+
+<div *ngIf="loggedBool">
+  <div class="disconnectButton"> 
+  <ion-button color="warning" (click)="logout()" class="btnElt" >Se Deconnecter</ion-button>
+</div>
+
+   <h1 >Aujourd'hui {{ currentDate }}</h1>
+
+   <ion-card  class="todoL" *ngFor="let task of tasks">
+    <ion-item-sliding>
+      <ion-item class="task" (click)="openTask(task)" lines="none">
+        <ion-label>
+          {{ task.title }}
+        </ion-label>
+        <ion-label>
+          <p>crée le</p>
+          <p>{{ task.create_date }}</p>
+          <p>mise à jour le</p>
+          <p>{{ task.update_date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-card>
+
+  <ion-card class="taskAdd" *ngIf="addTaskBool">
+    <form (ngSubmit)="addTask()">
+      <ion-item>
+        <ion-label position="stacked">Titre</ion-label>
+        <ion-input [(ngModel)]="myTitleTask" name="myTitle"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea [(ngModel)]="myDescriptionTask" name="myDesc"></ion-textarea>
+    </ion-item>
+    <ion-button expand="block" color="success" type="submit">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Ajouter
+  </ion-button>
+  </form>
+  </ion-card>
+
+  <ion-button *ngIf="!addTaskBool" (click)="showForm()" expand="block" class="add-button">
+    <ion-icon name="add" slot="start"></ion-icon>
+    Ajouter une tâche
+  </ion-button>
+
+  <ion-button *ngIf="addTaskBool" (click)="showForm()" expand="block" class="add-button">
+    <ion-icon name="close" slot="start"></ion-icon>
+    Annuler
+  </ion-button>
+</div>
+ </div>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Ma tâche</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="task">
+        <ion-item>
+            <ion-label position="stacked">Titre</ion-label>
+            <ion-input [(ngModel)]="task.title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea [(ngModel)]="task.description"></ion-textarea>
+        </ion-item>
+
+        
+    </div>
+
+    <ion-button expand="block" color="success" (click)="updateTask()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Update
+    </ion-button>
+    <ion-button expand="block" color="danger" (click)="deleteTask()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Supprimer
+    </ion-button>
+
+</ion-content>

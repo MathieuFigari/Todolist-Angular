@@ -1,0 +1,64 @@
+.bg-img {
+  padding: 1px;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ion-title { text-align: center !important; }
+
+h1 {
+  color: white;
+  text-shadow: 30px;
+  text-align: center;
+  font-size:large;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  
+}
+
+.disconnectButton{
+  margin: auto;
+  width: 30%;
+}
+
+.btnElt{
+  width: 100%;
+}
+
+.todoL {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.task{
+  cursor: pointer;
+}
+
+.taskAdd{
+  max-width: 800px;
+ margin: auto;
+}
+
+p{
+  text-align: right;
+}
+
+.add-button{
+  max-width: 800px;
+  margin: auto;
+}
+
+.signIn{
+  max-width: 800px;
+  margin: auto;
+  width: 80%;
+}
+
+.connectButton{
+  width: 100%;
+}
