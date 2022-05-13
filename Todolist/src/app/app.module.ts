@@ -11,13 +11,28 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 
+const environment = {
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCMc3OYhP3PwLRklFzYHgpnAreuGA8LQ1g",
+    authDomain: "todolist-angular-ionic.firebaseapp.com",
+    projectId: "todolist-angular-ionic",
+    storageBucket: "todolist-angular-ionic.appspot.com",
+    messagingSenderId: "821887711341",
+    appId: "1:821887711341:web:4543101953c11a9c656764"
+  }
+};
 
+const initialize = environment.firebase
 
 
 @NgModule({
+
+
+
+
   declarations: [AppComponent], 
   entryComponents: [],
   imports: [
@@ -25,7 +40,7 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(initialize)),
     provideFirestore(() => getFirestore()),
     provideAuth(() =>  getAuth())
   ],
